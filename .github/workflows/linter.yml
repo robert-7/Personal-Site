@@ -6,23 +6,8 @@ on:
     branches: [gh-pages]  # gh-pages branches is my default branch
 
 jobs:
-
-  markdown-lint:
+  pre-commit:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out code
-        uses: actions/checkout@v2
-      - name: Markdown Linting Action
-        uses: avto-dev/markdown-lint@v1
-        with:
-          args: './README.md'
-
-  html-lint:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v2
-      - name: HTML5Validator
-        uses: Cyb3r-Jak3/html5validator-action@v0.5
-        with:
-          root: .
+      - uses: actions/checkout@v4
+      - uses: pre-commit/action@v3.0.0
