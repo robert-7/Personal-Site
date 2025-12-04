@@ -34,57 +34,63 @@ li a:hover {
 .bubble {
     animation: 1s ease-out 0s 1 slideInFromLeft;
     position: relative;
-    left: 4em;
-    top: 3.5em;
-    padding: 2em;
-    background-color: #cbcbcb;
-    width: 16em;
-    height: auto;
-    border-radius: 25px;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 1.5em 3em;
+
+    /* Glassmorphism */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+
+    width: auto;
+    display: inline-block;
+    border-radius: 16px;
     text-align: center;
 }
 
+.bubble h2 {
+    margin: 0;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    font-weight: 700;
+}
+
+/* Large screens (4K and up) */
+#banner h2 {
+    font-size: 8em;
+}
+
 @media screen and (max-width: 2400px) {
-    #banner div {
-        width: 32em;
-    }
     #banner h2 {
         font-size: 6em;
     }
 }
 
 @media screen and (max-width: 1680px) {
-    #banner div {
-        width: 24em;
-    }
     #banner h2 {
         font-size: 5em;
     }
 }
 
 @media screen and (max-width: 1366px) {
-    #banner div {
-        width: 16em;
-    }
     #banner h2 {
         font-size: 4em;
     }
 }
 
 @media screen and (max-width: 980px) {
-    #banner div {
-        width: 14em;
-    }
     #banner h2 {
         font-size: 3em;
     }
 }
 
 @media screen and (max-width: 736px) {
-    #banner div {
+    .bubble {
         left: 2.5em;
-        top: 2.5em;
-        width: 10em;
     }
     #banner h2 {
         font-size: 2em;
@@ -95,13 +101,12 @@ li a:hover {
 }
 
 @media screen and (max-width: 480px) {
-    #banner div {
-        left: 2em;
-        top: 2em;
-        width: 10em;
+    .bubble {
+        left: 1em;
+        padding: 1em 1.5em;
     }
     #banner h2 {
-        font-size: 1em;
+        font-size: 1.5em;
     }
 }
 
