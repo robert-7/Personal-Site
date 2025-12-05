@@ -57,7 +57,7 @@ repos:
     hooks:
       - id: prettier
         types_or: [css, javascript, html, json]
-        files: custom/.*\.(css|js|json)$
+        files: 'custom/.*\.(css|js|json)$|^index.html$'
 
   # YAML linting
   - repo: https://github.com/adrienverge/yamllint
