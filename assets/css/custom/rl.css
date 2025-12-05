@@ -124,21 +124,23 @@ li a:hover {
   left: 1em;
 }
 
+.social-img {
+  position: relative;
+  bottom: 1em;
+  border-radius: 16px;
+}
+
 @media screen and (width >= 980px) {
   .social-img {
-    position: relative;
     height: 128px;
     width: 128px;
-    bottom: 1em;
   }
 }
 
 @media screen and (width <= 980px) {
   .social-img {
-    position: relative;
     height: 96px;
     width: 96px;
-    bottom: 1em;
   }
 }
 
