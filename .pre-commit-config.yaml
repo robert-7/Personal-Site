@@ -23,11 +23,41 @@ repos:
       - id: markdownlint
         entry: mdl --style .markdownlint.rb
 
-  # css linting
-  - repo: https://github.com/pre-commit/mirrors-csslint
-    rev: v1.0.5
+  # Modern CSS linting
+  - repo: https://github.com/thibaudcolas/pre-commit-stylelint
+    rev: v16.26.1
     hooks:
-      - id: csslint
+      - id: stylelint
+        files: assets/css/custom/.*\.css$
+        additional_dependencies:
+          - stylelint
+          - stylelint-config-standard
+        args: [--fix]
+
+  # JavaScript linting
+  - repo: https://github.com/pre-commit/mirrors-eslint
+    rev: v9.39.1
+    hooks:
+      - id: eslint
+        files: assets/js/custom/.*\.js$
+        types: [file]
+        additional_dependencies:
+          - eslint
+          - eslint-config-standard
+          - eslint-plugin-import
+          - eslint-plugin-node
+          - eslint-plugin-n
+          - eslint-plugin-promise
+          - '@eslint/eslintrc'
+          - globals
+
+  # Universal Formatter
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v3.1.0
+    hooks:
+      - id: prettier
+        types_or: [css, javascript, html, json]
+        files: custom/.*\.(css|js|json)$
 
   # YAML linting
   - repo: https://github.com/adrienverge/yamllint
