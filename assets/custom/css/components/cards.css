@@ -22,13 +22,16 @@
   backdrop-filter: blur(10px);
   border: var(--glass-border);
   box-shadow: var(--shadow-strong);
-  width: auto;
+  width: min(90vw, 720px);
+
+  /* ensures the bubble doesn't overflow the hero */
+  max-width: 40vw;
   display: inline-block;
   border-radius: var(--radius);
-  text-align: center;
+  text-align: left;
 }
 
-.bubble h2 {
+.bubble .name {
   margin: 0;
   color: var(--on-hero);
   text-shadow: 0 2px 4px rgb(0 0 0 / 50%);
@@ -45,9 +48,15 @@
   }
 }
 
+@media screen and (width <= 600px) {
+  .bubble {
+    padding: 1em 1.5em;
+  }
+}
+
 @media screen and (width <= 480px) {
   .bubble {
     left: 1em;
-    padding: 1em 1.5em;
+    padding: 0.5em 1em;
   }
 }

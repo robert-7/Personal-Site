@@ -1,45 +1,45 @@
-/* Large screens (4K and up) */
-#banner h2 {
-  font-size: 8em;
+/* Hero text sizing */
+#banner .name {
+  font-size: clamp(1.5rem, 5vw, 3.8rem);
+  margin: 0 0 0.4rem;
 }
 
-@media screen and (width <= 2400px) {
-  #banner h2 {
-    font-size: 6em;
-  }
+#banner .eyebrow {
+  margin: 0 0 0.35rem;
+  color: var(--on-hero);
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  opacity: 0.9;
+  font-size: clamp(0.8rem, 2vw, 1.2rem);
 }
 
-@media screen and (width <= 1680px) {
-  #banner h2 {
-    font-size: 5em;
-  }
-}
-
-@media screen and (width <= 1366px) {
-  #banner h2 {
-    font-size: 4em;
-  }
-}
-
-@media screen and (width <= 980px) {
-  #banner h2 {
-    font-size: 3em;
-  }
-}
-
-@media screen and (width <= 736px) {
-  #banner h2 {
-    font-size: 2em;
-  }
-}
-
-@media screen and (width <= 480px) {
-  #banner h2 {
-    font-size: 1.5em;
-  }
+#banner .value-prop {
+  margin: 0;
+  max-width: 34rem;
+  color: var(--on-hero);
+  line-height: 1.5;
+  font-size: clamp(0.8rem, 1.8vw, 1.15rem);
 }
 
 #banner {
   background-repeat: no-repeat;
   height: 557px;
+}
+
+@media screen and (width <= 630px) {
+  /* #banner .value-prop {
+    display: none;
+  } */
+
+  #banner .name {
+    font-size: clamp(0.8rem, 5vw, 3.8rem);
+  }
+
+  #banner .eyebrow {
+    font-size: clamp(0.6rem, 2vw, 1.2rem);
+  }
+
+  #banner .value-prop {
+    font-size: clamp(0.6rem, 1.8vw, 1.15rem);
+  }
 }
