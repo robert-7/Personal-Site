@@ -1,0 +1,90 @@
+:root {
+  --ink: #0f172a;
+  --muted: #475569;
+  --surface: #f8fafc;
+  --accent: #2563eb;
+  --accent-strong: #1d4ed8;
+  --radius: 16px;
+  --shadow-soft: 0 10px 30px rgb(0 0 0 / 8%);
+  --shadow-strong: 0 8px 32px 0 rgb(31 38 135 / 37%);
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --glass-bg: rgb(255 255 255 / 10%);
+  --glass-border: 1px solid rgb(255 255 255 / 20%);
+  --on-hero: #fff;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  background-color: var(--surface);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-body);
+  color: var(--ink);
+  line-height: 1.25;
+  font-weight: 700;
+  margin: 0 0 var(--space-2);
+}
+
+h1 {
+  font-size: clamp(2.25rem, 3vw, 2.625rem);
+}
+
+h2 {
+  font-size: clamp(1.875rem, 2.5vw, 2.25rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 2vw, 1.75rem);
+}
+
+p {
+  margin: 0 0 var(--space-2);
+  color: var(--ink);
+}
+
+.rl-nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: var(--surface);
+}
+
+li a {
+  display: block;
+  color: var(--ink);
+  padding: 8px 0 8px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: var(--muted);
+  color: var(--on-hero);
+}
+
+.vertically-centered {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.split > *:nth-child(odd) {
+  padding-left: 3em;
+}
+
+.more-vertical-space {
+  line-height: 50px;
+}

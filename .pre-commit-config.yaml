@@ -28,7 +28,7 @@ repos:
     rev: v16.26.1
     hooks:
       - id: stylelint
-        files: assets/css/custom/.*\.css$
+        files: assets/custom/css/.*\.css$
         additional_dependencies:
           - stylelint
           - stylelint-config-standard
@@ -39,7 +39,7 @@ repos:
     rev: v9.39.1
     hooks:
       - id: eslint
-        files: assets/js/custom/.*\.js$
+        files: assets/custom/js/.*\.js$
         types: [file]
         additional_dependencies:
           - eslint
@@ -57,7 +57,7 @@ repos:
     hooks:
       - id: prettier
         types_or: [css, javascript, html, json]
-        files: 'custom/.*\.(css|js|json)$|^index.html$'
+        files: 'assets/custom/.*\.(css|js|json)$|^index.html$'
 
   # YAML linting
   - repo: https://github.com/adrienverge/yamllint

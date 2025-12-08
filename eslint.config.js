@@ -8,8 +8,8 @@ const compat = new FlatCompat({
 module.exports = [
   ...compat.extends('standard'),
   {
-    files: ['assets/js/custom/**/*.js'],
-    ignores: ['assets/js/custom/**/*.min.js'],
+    files: ['assets/custom/js/**/*.js'],
+    ignores: ['assets/custom/js/**/*.min.js'],
     languageOptions: {
       ecmaVersion: 2022,
       sourceType: 'module',
