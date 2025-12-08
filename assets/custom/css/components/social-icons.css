@@ -1,5 +1,10 @@
 .social {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  padding: var(--space-2) 0;
 }
 
 .social-img-left {
@@ -14,6 +19,7 @@
   position: relative;
   bottom: 1em;
   border-radius: var(--radius);
+  display: inline-block;
 }
 
 @media screen and (width >= 980px) {
@@ -32,8 +38,9 @@
 
 .grow {
   transition: all 0.2s ease-in-out;
+  transform-origin: center bottom;
 }
 
 .grow:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
