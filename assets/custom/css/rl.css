@@ -1,22 +1,46 @@
+:root {
+  --ink: #0f172a;
+  --muted: #475569;
+  --surface: #f8fafc;
+  --accent: #2563eb;
+  --accent-strong: #1d4ed8;
+  --radius: 16px;
+  --shadow-soft: 0 10px 30px rgb(0 0 0 / 8%);
+  --shadow-strong: 0 8px 32px 0 rgb(31 38 135 / 37%);
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --glass-bg: rgb(255 255 255 / 10%);
+  --glass-border: 1px solid rgb(255 255 255 / 20%);
+  --on-hero: #fff;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  background-color: var(--surface);
+}
+
 .rl-nav {
   list-style-type: none;
   margin: 0;
   padding: 0;
   width: 200px;
-  background-color: #f1f1f1;
+  background-color: var(--surface);
 }
 
 li a {
   display: block;
-  color: #000;
+  color: var(--ink);
   padding: 8px 0 8px 16px;
   text-decoration: none;
 }
 
 /* Change the link color on hover */
 li a:hover {
-  background-color: #555;
-  color: white;
+  background-color: var(--muted);
+  color: var(--on-hero);
 }
 
 @keyframes slide-in-from-left {
@@ -41,19 +65,19 @@ li a:hover {
   padding: 1.5em 3em;
 
   /* Glassmorphism */
-  background: rgb(255 255 255 / 10%);
+  background: var(--glass-bg);
   backdrop-filter: blur(10px);
-  border: 1px solid rgb(255 255 255 / 20%);
-  box-shadow: 0 8px 32px 0 rgb(31 38 135 / 37%);
+  border: var(--glass-border);
+  box-shadow: var(--shadow-strong);
   width: auto;
   display: inline-block;
-  border-radius: 16px;
+  border-radius: var(--radius);
   text-align: center;
 }
 
 .bubble h2 {
   margin: 0;
-  color: #fff;
+  color: var(--on-hero);
   text-shadow: 0 2px 4px rgb(0 0 0 / 50%);
   font-weight: 700;
 }
@@ -127,7 +151,7 @@ li a:hover {
 .social-img {
   position: relative;
   bottom: 1em;
-  border-radius: 16px;
+  border-radius: var(--radius);
 }
 
 @media screen and (width >= 980px) {
