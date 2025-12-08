@@ -1,0 +1,39 @@
+.social {
+  text-align: center;
+}
+
+.social-img-left {
+  right: 1em;
+}
+
+.social-img-right {
+  left: 1em;
+}
+
+.social-img {
+  position: relative;
+  bottom: 1em;
+  border-radius: var(--radius);
+}
+
+@media screen and (width >= 980px) {
+  .social-img {
+    height: 128px;
+    width: 128px;
+  }
+}
+
+@media screen and (width <= 980px) {
+  .social-img {
+    height: 96px;
+    width: 96px;
+  }
+}
+
+.grow {
+  transition: all 0.2s ease-in-out;
+}
+
+.grow:hover {
+  transform: scale(1.1);
+}

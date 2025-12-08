@@ -1,0 +1,57 @@
+:root {
+  --ink: #0f172a;
+  --muted: #475569;
+  --surface: #f8fafc;
+  --accent: #2563eb;
+  --accent-strong: #1d4ed8;
+  --radius: 16px;
+  --shadow-soft: 0 10px 30px rgb(0 0 0 / 8%);
+  --shadow-strong: 0 8px 32px 0 rgb(31 38 135 / 37%);
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --glass-bg: rgb(255 255 255 / 10%);
+  --glass-border: 1px solid rgb(255 255 255 / 20%);
+  --on-hero: #fff;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  background-color: var(--surface);
+}
+
+.rl-nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: var(--surface);
+}
+
+li a {
+  display: block;
+  color: var(--ink);
+  padding: 8px 0 8px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: var(--muted);
+  color: var(--on-hero);
+}
+
+.vertically-centered {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.split > *:nth-child(odd) {
+  padding-left: 3em;
+}
+
+.more-vertical-space {
+  line-height: 50px;
+}
