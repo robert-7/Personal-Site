@@ -182,6 +182,17 @@ p {
   font-size: 1.05rem;
 }
 
+.blog-banner {
+  margin: 0 0 var(--space-4);
+}
+
+.blog-banner img {
+  border-radius: calc(var(--radius) * 0.75);
+  box-shadow: var(--shadow-soft);
+  display: block;
+  width: 100%;
+}
+
 .blog-post .button {
   margin-top: var(--space-3);
 }
