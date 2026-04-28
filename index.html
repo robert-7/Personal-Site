@@ -25,6 +25,16 @@
     <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
   </head>
   <body>
+    <header class="site-header" aria-label="Primary navigation">
+      <a class="site-brand" href="#banner">Robert Lech</a>
+      <nav class="site-nav">
+        <a href="#one">About</a>
+        <a href="#rl-software">Projects</a>
+        <a href="#rl-blog">Blog</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
     <!-- Banner -->
     <section id="banner">
       <div class="bubble">
@@ -112,6 +122,29 @@
             </div>
           </div>
         </div>
+        <div id="rl-blog" class="spotlight">
+          <div class="content">
+            <h3>Blog</h3>
+            <p>
+              I am starting to collect short notes on software engineering,
+              infrastructure, and the decisions that turn rough ideas into reliable
+              systems. For now, there is a starter post below as a placeholder for the
+              shape of the blog.
+            </p>
+            <div class="social">
+              <a
+                class="social-icon-link grow"
+                href="blog/moving-containerized-flask-app-to-aws/index.html"
+                aria-label="Read Moving a Containerized Flask App to AWS"
+              >
+                <span class="fa fa-pencil-square-o" aria-hidden="true"></span>
+              </a>
+            </div>
+          </div>
+          <div class="image blog-visual" aria-hidden="true">
+            <span class="fa fa-file-text-o"></span>
+          </div>
+        </div>
         <div id="rl-hobbies" class="spotlight">
           <div class="content">
             <h3>Hobbies</h3>
@@ -129,7 +162,9 @@
                   alt="Duolingo icon"
                 />
               </a>
-              <a href="https://boardgamegeek.com/collection/user/48cg89tw?own=1">
+              <a
+                href="https://boardgamegeek.com/collection/user/48cg89tw?rankobjecttype=subtype&rankobjectid=1&columns=title%7Cthumbnail%7Cstatus%7Crank%7Crating%7Cbggrating%7Cavgrating%7Cplays%7Ccomment%7Ccommands&geekranks=Board%20Game%20Rank&own=1&objecttype=thing&ff=1&subtype=boardgame"
+              >
                 <img
                   class="social-img grow"
                   src="assets/css/images/icons/boardgame-geek-icon.png"
@@ -159,12 +194,14 @@
         <section>
           <ul class="contact vertically-centered">
             <li class="fa-linkedin fa-lg more-vertical-space">
-              <a href="https://www.linkedin.com/in/robertlech"
+              <a class="contact-link" href="https://www.linkedin.com/in/robertlech"
                 >linkedin.com/in/robertlech</a
               >
             </li>
             <li class="fa-home fa-lg more-vertical-space">
-              <a href="https://maps.app.goo.gl/s1LU3BxesmszEnJh8">Toronto, ON</a>
+              <a class="contact-link" href="https://maps.app.goo.gl/s1LU3BxesmszEnJh8"
+                >Toronto, ON</a
+              >
             </li>
           </ul>
         </section>
