@@ -8,6 +8,7 @@ repos:
     rev: v6.0.0
     hooks:
       - id: check-yaml
+      - id: fix-byte-order-marker
       - id: trailing-whitespace
         exclude: '^assets/fonts/fontawesome-webfont.svg$'
       - id: end-of-file-fixer
@@ -65,3 +66,10 @@ repos:
     hooks:
       - id: yamllint
         entry: yamllint -c .yamllint.yaml .
+
+  # unicode character normalization
+  - repo: https://github.com/sirosen/texthooks
+    rev: 0.7.1
+    hooks:
+      - id: fix-smartquotes
+      - id: fix-unicode-dashes
