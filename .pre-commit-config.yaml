@@ -31,8 +31,8 @@ repos:
       - id: stylelint
         files: assets/custom/css/.*\.css$
         additional_dependencies:
-          - stylelint
-          - stylelint-config-standard
+          - stylelint@16.26.1
+          - stylelint-config-standard@36.0.1
         args: [--fix]
 
   # JavaScript linting
