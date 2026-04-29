@@ -28,13 +28,14 @@ repos:
 
   # Modern CSS linting
   - repo: https://github.com/thibaudcolas/pre-commit-stylelint
-    rev: v17.9.0
+    # Kept at v16.26.1 because newer versions are causing issues
+    rev: v16.26.1
     hooks:
       - id: stylelint
         files: assets/custom/css/.*\.css$
         additional_dependencies:
-          - stylelint@17.9.1
-          - stylelint-config-standard@40.0.0
+          - stylelint@16.26.1
+          - stylelint-config-standard@36.0.1
         args: [--fix]
 
   # JavaScript linting
