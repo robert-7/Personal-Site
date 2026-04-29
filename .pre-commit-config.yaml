@@ -19,6 +19,8 @@ repos:
 
   # markdown linting
   - repo: https://github.com/markdownlint/markdownlint
+    # Kept at v0.13.0 because validating newer releases currently fails here
+    # while pre-commit builds Ruby 3.3.0 without the psych extension.
     rev: v0.13.0
     hooks:
       - id: markdownlint
@@ -26,18 +28,18 @@ repos:
 
   # Modern CSS linting
   - repo: https://github.com/thibaudcolas/pre-commit-stylelint
-    rev: v16.26.1
+    rev: v17.9.0
     hooks:
       - id: stylelint
         files: assets/custom/css/.*\.css$
         additional_dependencies:
-          - stylelint@16.26.1
-          - stylelint-config-standard@36.0.1
+          - stylelint@17.9.1
+          - stylelint-config-standard@40.0.0
         args: [--fix]
 
   # JavaScript linting
   - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: v9.39.1
+    rev: v10.2.1
     hooks:
       - id: eslint
         files: assets/custom/js/.*\.js$
@@ -54,7 +56,7 @@ repos:
 
   # Universal Formatter
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v3.1.0
+    rev: v4.0.0-alpha.8
     hooks:
       - id: prettier
         types_or: [css, javascript, html, json]
@@ -62,7 +64,7 @@ repos:
 
   # YAML linting
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.37.1
+    rev: v1.38.0
     hooks:
       - id: yamllint
         entry: yamllint -c .yamllint.yaml .
