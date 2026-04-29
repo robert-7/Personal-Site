@@ -25,6 +25,18 @@
     <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
   </head>
   <body>
+    <header class="site-header" aria-label="Primary navigation">
+      <a class="site-brand" href="#banner">Robert Lech</a>
+      <nav class="site-nav">
+        <a href="#rl-about">About Me</a>
+        <a href="#rl-software">Software</a>
+        <a href="#rl-math">Math</a>
+        <a href="#rl-blog">Blogs</a>
+        <a href="#rl-hobbies">Hobbies</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
     <!-- Banner -->
     <section id="banner">
       <div class="bubble">
@@ -37,8 +49,8 @@
       </div>
     </section>
 
-    <!-- One -->
-    <section id="one" class="wrapper">
+    <!-- About Me Section -->
+    <section id="rl-about" class="wrapper">
       <div class="inner">
         <section>
           <h2>About Me</h2>
@@ -52,8 +64,8 @@
       </div>
     </section>
 
-    <!-- Two -->
-    <section id="two" class="wrapper style2 alt">
+    <!-- Details and Links Sections -->
+    <section id="rl-details-links" class="wrapper style2 alt">
       <div class="inner">
         <div id="rl-software" class="spotlight">
           <div class="content">
@@ -112,7 +124,36 @@
             </div>
           </div>
         </div>
+        <div id="rl-blog" class="spotlight">
+          <div class="content">
+            <h3>Blogs</h3>
+            <p>
+              I am starting to collect short notes on software engineering,
+              infrastructure, and the decisions that turn rough ideas into reliable
+              systems. For now, there is a starter post below as a placeholder for the
+              shape of the blog.
+            </p>
+            <div class="social">
+              <a
+                href="blog/moving-containerized-flask-app-to-aws/index.html"
+                target="_blank"
+              >
+                <img
+                  class="social-img social-img-left grow"
+                  src="assets/css/images/icons/moving-containerized-flask-app-to-aws.png"
+                  alt="Moving a Containerized Flask App to AWS blog post thumbnail"
+                />
+              </a>
+            </div>
+          </div>
+          <div class="image blog-visual" aria-hidden="true">
+            <span class="fa fa-file-text-o"></span>
+          </div>
+        </div>
         <div id="rl-hobbies" class="spotlight">
+          <div class="image">
+            <img src="images/mahjong.jpg" alt="Expert Mahjong Certification" />
+          </div>
           <div class="content">
             <h3>Hobbies</h3>
             <p>
@@ -129,7 +170,9 @@
                   alt="Duolingo icon"
                 />
               </a>
-              <a href="https://boardgamegeek.com/collection/user/48cg89tw?own=1">
+              <a
+                href="https://boardgamegeek.com/collection/user/48cg89tw?rankobjecttype=subtype&rankobjectid=1&columns=title%7Cthumbnail%7Cstatus%7Crank%7Crating%7Cbggrating%7Cavgrating%7Cplays%7Ccomment%7Ccommands&geekranks=Board%20Game%20Rank&own=1&objecttype=thing&ff=1&subtype=boardgame"
+              >
                 <img
                   class="social-img grow"
                   src="assets/css/images/icons/boardgame-geek-icon.png"
@@ -145,26 +188,25 @@
               </a>
             </div>
           </div>
-          <div class="image">
-            <img src="images/mahjong.jpg" alt="Expert Mahjong Certification" />
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact -->
+    <!-- Contact Section-->
     <section id="contact" class="wrapper">
       <div class="inner split">
         <h3>Contact Me</h3>
         <section>
           <ul class="contact vertically-centered">
             <li class="fa-linkedin fa-lg more-vertical-space">
-              <a href="https://www.linkedin.com/in/robertlech"
+              <a class="contact-link" href="https://www.linkedin.com/in/robertlech"
                 >linkedin.com/in/robertlech</a
               >
             </li>
             <li class="fa-home fa-lg more-vertical-space">
-              <a href="https://maps.app.goo.gl/s1LU3BxesmszEnJh8">Toronto, ON</a>
+              <a class="contact-link" href="https://maps.app.goo.gl/s1LU3BxesmszEnJh8"
+                >Toronto, ON</a
+              >
             </li>
           </ul>
         </section>

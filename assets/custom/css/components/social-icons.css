@@ -22,17 +22,46 @@
   display: inline-block;
 }
 
+.social-icon-link {
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid rgb(15 23 42 / 10%);
+  border-radius: var(--radius);
+  bottom: 1em;
+  box-shadow: var(--shadow-soft);
+  color: var(--accent);
+  display: inline-flex;
+  justify-content: center;
+  position: relative;
+  text-decoration: none;
+}
+
+.social-icon-link:hover {
+  color: var(--accent-strong);
+}
+
+.social-icon-link .fa {
+  font-size: 3rem;
+  line-height: 1;
+}
+
 @media screen and (width >= 980px) {
-  .social-img {
+  .social-img,
+  .social-icon-link {
     height: 128px;
     width: 128px;
   }
 }
 
 @media screen and (width <= 980px) {
-  .social-img {
+  .social-img,
+  .social-icon-link {
     height: 96px;
     width: 96px;
+  }
+
+  .social-icon-link .fa {
+    font-size: 2.35rem;
   }
 }
 

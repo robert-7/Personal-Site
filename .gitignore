@@ -163,6 +163,7 @@ $RECYCLE.BIN/
 *.egg-info
 dist/
 build/
+node_modules/
 eggs/
 parts/
 var/

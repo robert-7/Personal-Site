@@ -8,6 +8,7 @@ repos:
     rev: v6.0.0
     hooks:
       - id: check-yaml
+      - id: fix-byte-order-marker
       - id: trailing-whitespace
         exclude: '^assets/fonts/fontawesome-webfont.svg$'
       - id: end-of-file-fixer
@@ -18,6 +19,8 @@ repos:
 
   # markdown linting
   - repo: https://github.com/markdownlint/markdownlint
+    # Kept at v0.13.0 because validating newer releases currently fails here
+    # while pre-commit builds Ruby 3.3.0 without the psych extension.
     rev: v0.13.0
     hooks:
       - id: markdownlint
@@ -25,18 +28,19 @@ repos:
 
   # Modern CSS linting
   - repo: https://github.com/thibaudcolas/pre-commit-stylelint
+    # Kept at v16.26.1 because newer versions are causing issues
     rev: v16.26.1
     hooks:
       - id: stylelint
         files: assets/custom/css/.*\.css$
         additional_dependencies:
-          - stylelint
-          - stylelint-config-standard
+          - stylelint@16.26.1
+          - stylelint-config-standard@36.0.1
         args: [--fix]
 
   # JavaScript linting
   - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: v9.39.1
+    rev: v10.2.1
     hooks:
       - id: eslint
         files: assets/custom/js/.*\.js$
@@ -53,7 +57,7 @@ repos:
 
   # Universal Formatter
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v3.1.0
+    rev: v4.0.0-alpha.8
     hooks:
       - id: prettier
         types_or: [css, javascript, html, json]
@@ -61,7 +65,14 @@ repos:
 
   # YAML linting
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.37.1
+    rev: v1.38.0
     hooks:
       - id: yamllint
         entry: yamllint -c .yamllint.yaml .
+
+  # unicode character normalization
+  - repo: https://github.com/sirosen/texthooks
+    rev: 0.7.1
+    hooks:
+      - id: fix-smartquotes
+      - id: fix-unicode-dashes
