@@ -46,14 +46,7 @@ repos:
         files: assets/custom/js/.*\.js$
         types: [file]
         additional_dependencies:
-          - eslint
-          - eslint-config-standard
-          - eslint-plugin-import
-          - eslint-plugin-node
-          - eslint-plugin-n
-          - eslint-plugin-promise
-          - '@eslint/eslintrc'
-          - globals
+          - eslint@10.2.1
 
   # Universal Formatter
   - repo: https://github.com/pre-commit/mirrors-prettier
