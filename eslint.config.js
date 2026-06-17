@@ -1,24 +1,37 @@
-const { FlatCompat } = require('@eslint/eslintrc');
-const globals = require('globals');
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
 module.exports = [
-  ...compat.extends('standard'),
+  {
+    ignores: ['assets/custom/js/**/*.min.js'],
+  },
   {
     files: ['assets/custom/js/**/*.js'],
-    ignores: ['assets/custom/js/**/*.min.js'],
     languageOptions: {
       ecmaVersion: 2022,
-      sourceType: 'module',
+      sourceType: 'script',
       globals: {
-        ...globals.browser,
-        ...globals.jquery,
-        ...globals.node,
+        window: 'readonly',
+        document: 'readonly',
+        navigator: 'readonly',
+        console: 'readonly',
+        setTimeout: 'readonly',
+        clearTimeout: 'readonly',
+        setInterval: 'readonly',
+        clearInterval: 'readonly',
+        jQuery: 'readonly',
+        $: 'readonly',
       },
     },
-    rules: {},
+    rules: {
+      'no-undef': 'error',
+      'no-unused-vars': ['warn', { args: 'none', varsIgnorePattern: '^_' }],
+      'no-redeclare': 'error',
+      'no-unreachable': 'error',
+      'no-cond-assign': 'error',
+      'no-constant-condition': 'warn',
+      'no-empty': 'warn',
+      'no-self-assign': 'error',
+      'no-sparse-arrays': 'error',
+      'use-isnan': 'error',
+      'valid-typeof': 'error',
+    },
   },
 ];
