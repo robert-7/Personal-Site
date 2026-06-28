@@ -1,0 +1,45 @@
+{
+  "section": {
+    "eyebrow": "What I work with",
+    "heading": "Skills & Tools"
+  },
+  "categories": [
+    {
+      "title": "Backend",
+      "skills": [
+        { "name": "Go", "icon": "simple-icons:go" },
+        { "name": "Python", "icon": "simple-icons:python" },
+        { "name": "REST APIs", "icon": "simple-icons:openapiinitiative" },
+        { "name": "Flask", "icon": "simple-icons:flask" }
+      ]
+    },
+    {
+      "title": "Infrastructure & DevOps",
+      "skills": [
+        { "name": "AWS", "icon": "simple-icons:amazonwebservices" },
+        { "name": "Docker", "icon": "simple-icons:docker" },
+        { "name": "Kubernetes", "icon": "simple-icons:kubernetes" },
+        { "name": "GitHub Actions", "icon": "simple-icons:githubactions" },
+        { "name": "Linux", "icon": "simple-icons:linux" },
+        { "name": "CI/CD", "icon": "simple-icons:git" }
+      ]
+    },
+    {
+      "title": "Data & Storage",
+      "skills": [
+        { "name": "MongoDB", "icon": "simple-icons:mongodb" },
+        { "name": "MySQL", "icon": "simple-icons:mysql" },
+        { "name": "Redis", "icon": "simple-icons:redis" }
+      ]
+    },
+    {
+      "title": "Engineering Practices",
+      "skills": [
+        { "name": "Observability", "icon": "simple-icons:prometheus" },
+        { "name": "Platform Reliability", "icon": "simple-icons:kubernetes" },
+        { "name": "Developer Productivity", "icon": "simple-icons:github" },
+        { "name": "Infrastructure as Code", "icon": "simple-icons:terraform" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Moving a Containerized Flask App to AWS",
+    "category": "Writing",
+    "description": "A practical case study on moving a Dockerized Flask application from local Docker Compose to ECS Fargate, ECR, ALB, MongoDB Atlas, SSM Parameter Store, CloudWatch, GitHub Actions OIDC, and AWS CDK.",
+    "images": ["/blog/moving-containerized-flask-app-to-aws/banner.png"],
+    "slides": ["Case study banner"],
+    "link": "/blog/moving-containerized-flask-app-to-aws/",
+    "linkLabel": "Read Article"
+  },
+  {
+    "title": "10 Months of Growth",
+    "category": "Writing",
+    "description": "A retrospective on leaving Index Exchange, technical interviews, AI and cloud projects, and preparing for a new senior backend engineering chapter.",
+    "images": ["/blog/ten-months-of-growth/banner.png"],
+    "slides": ["Article banner"],
+    "link": "/blog/ten-months-of-growth/",
+    "linkLabel": "Read Article"
+  },
+  {
+    "title": "Applied Mathematics",
+    "category": "Mathematics",
+    "description": "Applied Mathematics at Carleton University, with research focused on recursions and recursively defined trees.",
+    "images": ["/images/robert/math.jpg"],
+    "slides": ["Recursive tree visualization"],
+    "link": "https://github.com/robert-7/Math-Assignments-and-Presentations",
+    "linkLabel": "View Math Repo"
+  },
+  {
+    "title": "Outside of Work",
+    "category": "Personal",
+    "description": "Volleyball, piano, languages, board games, and Mahjong. A few threads outside software that keep the rest of the work human.",
+    "images": ["/images/robert/mahjong.jpg"],
+    "slides": ["Mahjong interest"],
+    "link": "",
+    "linkLabel": ""
+  }
+]

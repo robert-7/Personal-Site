@@ -1,0 +1,52 @@
+{
+  "title": "Robert Lech | Senior Software Engineer",
+  "description": "Senior Software Engineer and mathematician in Toronto building backend systems, platform services, infrastructure automation, and developer productivity tooling.",
+  "ogSiteName": "Robert Lech",
+  "shortName": "RLECH",
+  "tagline": "Backend systems · Platform reliability · Applied mathematics",
+  "themeStorageKey": "robert-portfolio-theme",
+  "web3formsKey": "",
+  "footerAttribution": {
+    "builder": "Astro Portfolio Theme",
+    "builderUrl": "https://github.com/MarcusHoltz/astro-portfolio-theme",
+    "host": "Hosted on GitHub Pages",
+    "hostUrl": "https://pages.github.com/"
+  },
+  "seoKeywords": [
+    "Robert Lech",
+    "Senior Software Engineer",
+    "Backend Engineer",
+    "Platform Engineer",
+    "DevOps Engineer",
+    "Reliability Engineering",
+    "Developer Productivity",
+    "Infrastructure Automation",
+    "Toronto Software Engineer",
+    "Go",
+    "Python",
+    "AWS",
+    "Kubernetes",
+    "Docker",
+    "Applied Mathematics"
+  ],
+  "navExternal": [
+    {
+      "label": "GitHub",
+      "desc": "Open-source work, projects, and technical experiments",
+      "personalKey": "github",
+      "urlTemplate": "https://github.com/{value}"
+    },
+    {
+      "label": "LinkedIn",
+      "desc": "Professional background and experience",
+      "personalKey": "linkedin",
+      "urlTemplate": "https://linkedin.com/in/{value}"
+    },
+    {
+      "label": "Email",
+      "desc": "Temporary contact email until Robert replaces it",
+      "personalKey": "email",
+      "urlTemplate": "mailto:{value}"
+    }
+  ]
+}

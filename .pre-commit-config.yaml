@@ -1,6 +1,8 @@
 ---
 # Adding plugins: https://pre-commit.com/#plugins
 
+exclude: '^(node_modules/|dist/|\.astro/|public/images/|public/blog/|public/fonts/|pnpm-lock\.yaml$)'
+
 repos:
 
   # general linting
@@ -25,6 +27,7 @@ repos:
     hooks:
       - id: markdownlint
         entry: mdl --style .markdownlint.rb
+        files: '^(README\.md|MIGRATION_NOTES\.md|SECURITY\.md)$'
 
   # Modern CSS linting
   - repo: https://github.com/thibaudcolas/pre-commit-stylelint
@@ -61,7 +64,8 @@ repos:
     rev: v1.38.0
     hooks:
       - id: yamllint
-        entry: yamllint -c .yamllint.yaml .
+        files: '(^|/).*\.ya?ml$'
+        exclude: '^(node_modules/|pnpm-lock\.yaml$)'
 
   # unicode character normalization
   - repo: https://github.com/sirosen/texthooks

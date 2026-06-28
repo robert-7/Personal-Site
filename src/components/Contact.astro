@@ -1,0 +1,224 @@
+---
+import personalData from '../data/personal.json';
+import { getSocialLinks } from '../lib/socialLinks';
+
+const socialLinks = getSocialLinks(personalData as unknown as Record<string, string | string[]>);
+---
+
+<section
+  id="contact"
+  class="py-24"
+  style="background: var(--bg-section); position: relative; z-index: 5; scroll-margin-top: 80px;"
+>
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <p class="text-sm font-semibold tracking-widest text-highlight uppercase mb-3">
+          Contact
+        </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold section-title">Get in touch.</h2>
+        <p class="mt-4 text-base max-w-2xl mx-auto" style="color: var(--text-muted);">
+          The best places to find me are LinkedIn and GitHub. Email is currently a placeholder
+          until I replace it with my preferred public address.
+        </p>
+      </div>
+
+      <div class="contact-grid reveal" style="transition-delay: 0.1s;">
+        <a class="contact-card" href="https://www.linkedin.com/in/robertlech" target="_blank" rel="noopener">
+          <span class="contact-icon">
+            <iconify-icon icon="simple-icons:linkedin" width="24" height="24" aria-hidden="true" />
+          </span>
+          <span>
+            <strong>LinkedIn</strong>
+            <small>linkedin.com/in/robertlech</small>
+          </span>
+        </a>
+
+        <a class="contact-card" href="https://github.com/robert-7" target="_blank" rel="noopener">
+          <span class="contact-icon">
+            <iconify-icon icon="simple-icons:github" width="24" height="24" aria-hidden="true" />
+          </span>
+          <span>
+            <strong>GitHub</strong>
+            <small>github.com/robert-7</small>
+          </span>
+        </a>
+
+        <a class="contact-card" href={`mailto:${personalData.email}`}>
+          <span class="contact-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              />
+            </svg>
+          </span>
+          <span>
+            <strong>Email</strong>
+            <small>{personalData.email}</small>
+          </span>
+        </a>
+
+        <div class="contact-card" aria-label={personalData.location}>
+          <span class="contact-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+              />
+            </svg>
+          </span>
+          <span>
+            <strong>Location</strong>
+            <small>{personalData.location}</small>
+          </span>
+        </div>
+      </div>
+
+      {
+        socialLinks.length > 0 && (
+          <div class="social-row reveal" style="transition-delay: 0.2s;">
+            {socialLinks.map((link) => (
+              <a
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contact-social-link"
+                aria-label={link.label}
+              >
+                <iconify-icon icon={link.icon} width="22" height="22" aria-hidden="true" />
+              </a>
+            ))}
+          </div>
+        )
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+
+  .contact-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-height: 6rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    color: var(--text);
+    background: var(--bg-card);
+    text-decoration: none;
+    transition:
+      transform 0.2s ease,
+      border-color 0.2s ease,
+      background 0.2s ease;
+  }
+
+  .contact-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--border-hover);
+    background: color-mix(in srgb, var(--bg-card), var(--accent) 7%);
+  }
+
+  .contact-card:focus-visible,
+  .contact-social-link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  .contact-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    flex: 0 0 auto;
+    border: 1px solid color-mix(in srgb, var(--accent), transparent 65%);
+    border-radius: 0.5rem;
+    color: var(--accent);
+    background: rgba(14, 165, 233, 0.08);
+  }
+
+  .contact-icon svg {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+
+  .contact-card strong,
+  .contact-card small {
+    display: block;
+  }
+
+  .contact-card strong {
+    margin-bottom: 0.25rem;
+    font-size: 0.95rem;
+  }
+
+  .contact-card small {
+    overflow-wrap: anywhere;
+    color: var(--text-muted);
+    font-size: 0.84rem;
+    line-height: 1.35;
+  }
+
+  .social-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .contact-social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    color: var(--text-muted);
+    background: var(--bg-card);
+    transition:
+      color 0.2s ease,
+      border-color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .contact-social-link:hover {
+    color: var(--accent);
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+  }
+</style>
+
+<script>
+  document.querySelectorAll('#contact .reveal').forEach((el) => {
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add('visible');
+          io.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+    io.observe(el);
+  });
+</script>

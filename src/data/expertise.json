@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "key": "backend",
+      "icon": "code-bracket-square",
+      "title": "Backend Systems",
+      "description": "Designing scalable services, APIs, and production software."
+    },
+    {
+      "key": "cloud-devops",
+      "icon": "server-stack",
+      "title": "Cloud & DevOps",
+      "description": "Automating infrastructure, deployment, CI/CD, and operational workflows."
+    },
+    {
+      "key": "reliability",
+      "icon": "cpu-chip",
+      "title": "Platform Reliability",
+      "description": "Building reliable systems with observability, alerts, SLO thinking, and operational discipline."
+    },
+    {
+      "key": "developer-productivity",
+      "icon": "command-line",
+      "title": "Developer Productivity",
+      "description": "Improving engineering workflows through tooling, documentation, automation, and platform support."
+    }
+  ]
+}
