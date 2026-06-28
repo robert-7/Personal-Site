@@ -41,12 +41,6 @@
       "desc": "Professional background and experience",
       "personalKey": "linkedin",
       "urlTemplate": "https://linkedin.com/in/{value}"
-    },
-    {
-      "label": "Email",
-      "desc": "Temporary contact email until Robert replaces it",
-      "personalKey": "email",
-      "urlTemplate": "mailto:{value}"
     }
   ]
 }
