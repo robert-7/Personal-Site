@@ -2,7 +2,7 @@
   "name": "robert-lech-personal-site",
   "type": "module",
   "version": "1.4.0",
-  "packageManager": "pnpm@11.9.0+sha512.bd682d5d03fe525ef7c9fd6780c6884d1e756ac4c9c9fe00c538782824310dcf90e3ddc4f53835f06dfaebd5085e41855e0bcbb3b60de2ac5bbab89e5036f03b",
+  "packageManager": "pnpm@11.9.0",
   "scripts": {
     "predev": "node scripts/download-assets.mjs",
     "dev": "astro dev",
@@ -16,15 +16,15 @@
     "typecheck": "astro check"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.3.0",
-    "astro": "^6.3.3",
-    "tailwindcss": "^4.3.0"
+    "@tailwindcss/vite": "^4.3.1",
+    "astro": "^6.4.8",
+    "tailwindcss": "^4.3.1"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.9",
-    "@types/node": "^25.8.0",
-    "@typescript-eslint/parser": "8.59.3",
-    "eslint": "10.4.0",
+    "@types/node": "^26.0.0",
+    "@typescript-eslint/parser": "8.61.1",
+    "eslint": "10.5.0",
     "eslint-plugin-astro": "1.7.0",
     "typescript": "6.0.3"
   }

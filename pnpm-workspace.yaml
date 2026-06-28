@@ -19,13 +19,6 @@ minimumReleaseAge: 10080
 # security patches where waiting 1 week is unacceptable (e.g. a hot CVE fix).
 # Format: - "package@version"  OR  - "@scope/package@version"
 minimumReleaseAgeExclude:
-  # devalue@5.8.1 patches GHSA-77vg-94rm-hx3p (DoS via sparse array). Published
-  # 2026-05-14 -- explicitly exempted from the 1-week hold so the security fix installs.
-  # Remove this entry once devalue@5.8.1 is > 7 days old.
-  - "devalue@5.8.1"
-  # astro@6.3.3 and its transitive @astrojs/* deps published 2026-05-13/14 -- just
-  # released at lockfile generation time (2026-05-15). Remove after 2026-05-21.
-  - "astro@6.3.3"
 
 # Block transitive deps from using git://, tarball, or GitHub shorthand URLs.
 # This is the direct mitigation for the Mini Shai-Hulud attack vector, where a
