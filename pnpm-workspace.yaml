@@ -2,7 +2,8 @@
 
 # Override transitive dependency versions (replaces npm's package.json "overrides" field)
 overrides:
-  vite: "7.3.2"
+  vite: "7.3.5"
+  esbuild: "0.28.1"
   # devalue >=5.6.3 <=5.8.0 has GHSA-77vg-94rm-hx3p (DoS via sparse array deserialization).
   # Astro pulls it in as a transitive dep. Force the patched version.
   devalue: ">=5.8.1"
