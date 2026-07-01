@@ -31,7 +31,7 @@ const heroParts = personalData.heroRole.split(' & ');
     <div class="spotlight spotlight-3"></div>
   </div>
 
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-32 lg:py-0">
+  <div class="hero-shell container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-32 lg:py-0">
     <div
       id="hero-canvas-wrapper"
       class="absolute overflow-hidden rounded-3xl pointer-events-none"
@@ -41,7 +41,7 @@ const heroParts = personalData.heroRole.split(' & ');
     </div>
 
     <div
-      class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-screen lg:min-h-0 lg:py-32"
+      class="hero-layout grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-screen lg:min-h-0 lg:py-32"
     >
       <div class="order-2 lg:order-1 space-y-6 relative">
         <p class="text-sm font-semibold tracking-widest text-highlight uppercase reveal">
@@ -913,6 +913,21 @@ const heroParts = personalData.heroRole.split(' & ');
   }
 
   @media (max-width: 639px) {
+    :global(#home) {
+      min-height: auto;
+      align-items: flex-start;
+    }
+
+    .hero-shell {
+      padding-top: 2rem !important;
+      padding-bottom: 3rem !important;
+    }
+
+    .hero-layout {
+      min-height: auto !important;
+      gap: 2rem !important;
+    }
+
     .project-frame-sizer {
       width: min(90vw, 380px) !important;
       height: min(calc(90vw * 0.75), 285px) !important;
