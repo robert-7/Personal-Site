@@ -3,6 +3,7 @@ import skillsData from '../data/skills.json';
 import { withBase } from '../lib/assetPath';
 
 const { section, categories } = skillsData;
+const skillIconVersion = 'brand-color-2026-07-01';
 ---
 
 <section id="skills" class="py-24" style="scroll-margin-top: 80px;">
@@ -24,9 +25,11 @@ const { section, categories } = skillsData;
                 <div class="icon-tile">
                   <img
                     src={withBase(
-                      skill.icon.includes(':')
-                        ? `/images/icons/${skill.icon.replace(':', '/')}.svg`
-                        : skill.icon
+                      `${
+                        skill.icon.includes(':')
+                          ? `/images/icons/${skill.icon.replace(':', '/')}.svg`
+                          : skill.icon
+                      }?v=${skillIconVersion}`
                     )}
                     alt={skill.name}
                     class="skill-icon"

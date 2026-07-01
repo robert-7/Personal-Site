@@ -1,8 +1,7 @@
 # Robert Lech Personal Site
 
 Astro-based personal portfolio for [robertlech.com](https://robertlech.com),
-migrated from the previous static HTML site to the Marcus Holtz Astro
-Portfolio Theme foundation.
+built on the Marcus Holtz Astro Portfolio Theme foundation.
 
 ## Stack
 
@@ -47,5 +46,3 @@ Blog posts live under `src/pages/blog/`, with images served from `public/blog/`.
 GitHub Pages deploys from `.github/workflows/deploy.yml` on pushes to the
 `gh-pages` branch. The custom domain is preserved through `CNAME` and
 `public/CNAME`, so the built `dist/` artifact includes the domain file.
-
-See `MIGRATION_NOTES.md` for temporary placeholders and follow-up TODOs.
