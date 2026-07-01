@@ -1,0 +1,46 @@
+{
+  "sections": [
+    {
+      "label": "About",
+      "shortLabel": "About",
+      "href": "#about",
+      "desc": "Background, experience, and approach"
+    },
+    {
+      "label": "Expertise",
+      "shortLabel": "Expertise",
+      "href": "#expertise",
+      "desc": "Backend, platform, reliability, and tooling focus"
+    },
+    {
+      "label": "Skills",
+      "shortLabel": "Skills",
+      "href": "#skills",
+      "desc": "Languages, systems, and engineering practices"
+    },
+    {
+      "label": "Projects",
+      "shortLabel": "Projects",
+      "href": "#projects",
+      "desc": "Featured technical work and case studies"
+    },
+    {
+      "label": "Writing & More",
+      "shortLabel": "More",
+      "href": "#portfolio",
+      "desc": "Writing, applied mathematics, and interests"
+    },
+    {
+      "label": "Training",
+      "shortLabel": "Training",
+      "href": "#certifications",
+      "desc": "Relevant courses and professional development"
+    },
+    {
+      "label": "Contact",
+      "shortLabel": "Contact",
+      "href": "#contact",
+      "desc": "LinkedIn, GitHub, location, and email"
+    }
+  ]
+}

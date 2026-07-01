@@ -1,0 +1,20 @@
+[
+  {
+    "name": "AWS Cloud Technical Essentials",
+    "issuer": "Coursera",
+    "date": "2026",
+    "status": "Completed",
+    "type": "professional-development",
+    "description": "Cloud computing foundations, AWS services, security, networking, and deployment patterns used as the basis for the Flask-to-AWS migration project.",
+    "credentialUrl": "https://www.coursera.org/learn/aws-cloud-technical-essentials"
+  },
+  {
+    "name": "AI Agents and Agentic AI Architecture in Python",
+    "issuer": "Coursera",
+    "date": "2025",
+    "status": "Completed",
+    "type": "professional-development",
+    "description": "Applied AI course work that informed the Piano Sheet Music Simplifier pipeline and its structured planning, validation, and deterministic rewrite flow.",
+    "credentialUrl": "https://www.coursera.org/learn/ai-agents-architecture-python"
+  }
+]

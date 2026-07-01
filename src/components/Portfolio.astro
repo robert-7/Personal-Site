@@ -1,0 +1,276 @@
+---
+import portfolioData from '../data/portfolio.json';
+import { withBase } from '../lib/assetPath';
+
+const categories = ['All', ...Array.from(new Set(portfolioData.map((item) => item.category)))];
+const categoryColors: Record<string, string> = {
+  Writing: '#38bdf8',
+  Mathematics: '#22c55e',
+  Personal: '#f59e0b',
+};
+---
+
+<section id="portfolio" class="py-24" style="scroll-margin-top: 80px;">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12 reveal">
+      <p class="text-sm font-semibold tracking-widest text-highlight uppercase mb-3">
+        Writing, math & personal
+      </p>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold section-title">More Context</h2>
+      <p class="mt-4 text-base max-w-2xl mx-auto" style="color: var(--text-muted);">
+        A few pieces that round out the professional story: writing, applied mathematics, and
+        interests outside work.
+      </p>
+    </div>
+
+    <div class="filter-bar reveal" style="transition-delay: 0.1s;">
+      {
+        categories.map((category) => (
+          <button class="pf-filter-btn" data-filter={category} aria-pressed={category === 'All'}>
+            {category}
+            <span class="pf-filter-count">
+              {category === 'All'
+                ? portfolioData.length
+                : portfolioData.filter((item) => item.category === category).length}
+            </span>
+          </button>
+        ))
+      }
+    </div>
+
+    <div class="context-grid reveal" style="transition-delay: 0.2s;">
+      {
+        portfolioData.map((item) => (
+          <article
+            class="context-card"
+            data-category={item.category}
+            style={`--card-accent: ${categoryColors[item.category] ?? '#38bdf8'}`}
+          >
+            <div class="context-image">
+              <img
+                src={withBase(item.images[0])}
+                alt={item.slides?.[0] ?? item.title}
+                loading="lazy"
+                width="640"
+                height="420"
+              />
+              <span class="context-badge">{item.category}</span>
+            </div>
+            <div class="context-body">
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+              {
+                item.link && item.linkLabel && (
+                  <a
+                    href={item.link}
+                    target={item.link.startsWith('/') || item.link.startsWith('#') ? '_self' : '_blank'}
+                    rel={item.link.startsWith('/') || item.link.startsWith('#') ? undefined : 'noopener'}
+                    class="context-link"
+                  >
+                    {item.linkLabel}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+                      />
+                    </svg>
+                  </a>
+                )
+              }
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .pf-filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    padding: 0.45rem 0.85rem;
+    color: var(--text-muted);
+    background: var(--bg-section);
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .pf-filter-btn:hover,
+  .pf-filter-btn.active {
+    color: var(--text);
+    border-color: var(--border-hover);
+    background: var(--bg-card);
+  }
+
+  .pf-filter-btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .pf-filter-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 999px;
+    background: rgba(148, 163, 184, 0.15);
+    font-size: 0.68rem;
+  }
+
+  .context-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .context-card {
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    background: var(--bg-card);
+    transition:
+      transform 0.25s ease,
+      border-color 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+
+  .context-card:hover {
+    transform: translateY(-4px);
+    border-color: color-mix(in srgb, var(--card-accent), transparent 45%);
+    box-shadow: 0 18px 42px rgba(2, 6, 23, 0.28);
+  }
+
+  .context-card.hidden-card {
+    display: none;
+  }
+
+  .context-image {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #020617;
+  }
+
+  .context-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+  }
+
+  .context-card:hover .context-image img {
+    transform: scale(1.04);
+  }
+
+  .context-badge {
+    position: absolute;
+    left: 0.75rem;
+    bottom: 0.75rem;
+    border: 1px solid color-mix(in srgb, var(--card-accent), white 18%);
+    border-radius: 0.4rem;
+    padding: 0.25rem 0.55rem;
+    color: #fff;
+    background: color-mix(in srgb, var(--card-accent), #020617 35%);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .context-body {
+    display: flex;
+    min-height: 15rem;
+    flex-direction: column;
+    padding: 1.25rem;
+  }
+
+  .context-body h3 {
+    margin: 0 0 0.75rem;
+    color: var(--text);
+    font-size: 1.1rem;
+    line-height: 1.25;
+  }
+
+  .context-body p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+
+  .context-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    width: fit-content;
+    margin-top: auto;
+    padding-top: 1.25rem;
+    color: var(--card-accent);
+    font-size: 0.86rem;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .context-link svg {
+    width: 1rem;
+    height: 1rem;
+    transition: transform 0.2s ease;
+  }
+
+  .context-link:hover svg {
+    transform: translate(3px, -3px);
+  }
+</style>
+
+<script>
+  document.querySelectorAll('#portfolio .reveal').forEach((el) => {
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add('visible');
+          io.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+    io.observe(el);
+  });
+
+  const filterButtons = document.querySelectorAll<HTMLButtonElement>('#portfolio .pf-filter-btn');
+  const cards = document.querySelectorAll<HTMLElement>('#portfolio .context-card');
+
+  function setFilter(filter: string) {
+    filterButtons.forEach((button) => {
+      const isActive = button.dataset.filter === filter;
+      button.classList.toggle('active', isActive);
+      button.setAttribute('aria-pressed', String(isActive));
+    });
+
+    cards.forEach((card) => {
+      const shouldShow = filter === 'All' || card.dataset.category === filter;
+      card.classList.toggle('hidden-card', !shouldShow);
+    });
+  }
+
+  filterButtons.forEach((button) => {
+    button.addEventListener('click', () => setFilter(button.dataset.filter ?? 'All'));
+  });
+
+  setFilter('All');
+</script>

@@ -1,0 +1,159 @@
+---
+import personalData from '../data/personal.json';
+import siteData from '../data/site.json';
+import menuData from '../data/menu.json';
+import { getSocialLinks } from '../lib/socialLinks';
+
+const currentYear = new Date().getFullYear();
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const socialLinks = getSocialLinks(personalData as unknown as Record<string, string | string[]>);
+const navLinks = menuData.sections.map((section) => ({ label: section.shortLabel, href: section.href }));
+const { footerAttribution } = siteData;
+---
+
+<footer id="site-footer" class="site-footer">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div class="footer-top">
+      <div>
+        <p class="footer-name">{personalData.name}</p>
+        <p class="footer-tagline">{siteData.tagline}</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer navigation">
+        {navLinks.map((link) => <a href={link.href}>{link.label}</a>)}
+      </nav>
+    </div>
+
+    <div class="footer-bottom">
+      <p>
+        © {currentYear} {personalData.name}
+        {footerAttribution.builder && (
+          <>
+            {' '}
+            · Built with{' '}
+            <a href={footerAttribution.builderUrl} target="_blank" rel="noopener">
+              {footerAttribution.builder}
+            </a>
+          </>
+        )}
+        {footerAttribution.host && (
+          <>
+            {' '}
+            · Hosted on{' '}
+            <a href={footerAttribution.hostUrl} target="_blank" rel="noopener">
+              {footerAttribution.host}
+            </a>
+          </>
+        )}
+        {' '}
+        · <a href={`${base}privacy/`}>Privacy</a> · <a href={`${base}terms/`}>Terms</a>
+      </p>
+
+      <div class="footer-socials">
+        {
+          socialLinks.map((link) => (
+            <a
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={link.label}
+            >
+              <iconify-icon icon={link.icon} width="20" height="20" aria-hidden="true" />
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--footer-border);
+    background: var(--footer-bg);
+  }
+
+  .footer-top,
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  .footer-top {
+    padding-bottom: 1.5rem;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid var(--footer-border);
+    padding-top: 1.5rem;
+  }
+
+  .footer-name {
+    margin: 0;
+    color: var(--text);
+    font-size: 1rem;
+    font-weight: 800;
+  }
+
+  .footer-tagline {
+    margin: 0.25rem 0 0;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+
+  .footer-nav,
+  .footer-socials {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.85rem;
+  }
+
+  .footer-nav a,
+  .footer-bottom a,
+  .footer-socials a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer-nav a {
+    font-size: 0.82rem;
+    font-weight: 700;
+  }
+
+  .footer-bottom p {
+    margin: 0;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    line-height: 1.7;
+  }
+
+  .footer-nav a:hover,
+  .footer-bottom a:hover,
+  .footer-socials a:hover {
+    color: var(--accent);
+  }
+
+  .footer-socials a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (max-width: 760px) {
+    .footer-top,
+    .footer-bottom {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .footer-nav,
+    .footer-socials {
+      justify-content: flex-start;
+    }
+  }
+</style>

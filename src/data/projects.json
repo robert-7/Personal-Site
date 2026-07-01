@@ -1,0 +1,71 @@
+{
+  "layout": "grid",
+  "items": [
+    {
+      "title": "Moving a Containerized Flask App to AWS",
+      "featured": true,
+      "resume": true,
+      "company": "Personal Cloud Migration",
+      "category": "cloud",
+      "description": "Migrated a Dockerized Flask course enrollment app from local Docker Compose to a production-minded AWS deployment using ECS Fargate, ECR, ALB, MongoDB Atlas, SSM Parameter Store, CloudWatch, GitHub Actions OIDC, and AWS CDK.",
+      "tags": ["Python", "Flask", "Docker", "AWS", "ECS Fargate", "CDK", "GitHub Actions", "MongoDB"],
+      "icon": "server-stack",
+      "sliderImage": "/blog/moving-containerized-flask-app-to-aws/banner.png",
+      "sliderOrder": 1,
+      "backgroundImage": "/blog/moving-containerized-flask-app-to-aws/banner.png",
+      "images": [
+        "/blog/moving-containerized-flask-app-to-aws/banner.png",
+        "/blog/moving-containerized-flask-app-to-aws/architectural-diagram.png"
+      ],
+      "link": "/blog/moving-containerized-flask-app-to-aws/",
+      "links": [
+        { "label": "Read Case Study", "url": "/blog/moving-containerized-flask-app-to-aws/" },
+        { "label": "GitHub Repository", "url": "https://github.com/robert-7/course-enrollment-app" },
+        { "label": "Live App", "url": "https://course-enrollment-app.robertlech.com/index" }
+      ],
+      "colorIcon": "simple-icons:amazonwebservices",
+      "githubRepo": "course-enrollment-app"
+    },
+    {
+      "title": "Piano Sheet Music Simplifier",
+      "featured": true,
+      "resume": true,
+      "company": "AI-Assisted Music Tooling",
+      "category": "automation",
+      "description": "AI-assisted Python pipeline that analyzes MusicXML, generates a structured simplification plan, validates it, rewrites the score deterministically, and renders beginner-friendly piano sheet music.",
+      "tags": ["Python", "MusicXML", "AI", "OpenAI", "music21", "automation"],
+      "icon": "command-line",
+      "sliderImage": "/images/robert/blogging.png",
+      "sliderOrder": 2,
+      "backgroundImage": "/images/robert/blogging.png",
+      "images": ["/images/robert/blogging.png"],
+      "link": "https://github.com/robert-7/piano-sheet-music-simplifier",
+      "links": [
+        {
+          "label": "GitHub Repository",
+          "url": "https://github.com/robert-7/piano-sheet-music-simplifier"
+        }
+      ],
+      "colorIcon": "simple-icons:openai",
+      "githubRepo": "piano-sheet-music-simplifier"
+    },
+    {
+      "title": "Platform & Reliability Engineering",
+      "featured": true,
+      "resume": true,
+      "company": "Professional Experience",
+      "category": "platform",
+      "description": "Backend and platform engineering experience focused on reliable services, infrastructure automation, observability, and developer productivity.",
+      "tags": ["Go", "Kubernetes", "Backend Systems", "Reliability", "Developer Productivity"],
+      "icon": "cpu-chip",
+      "sliderImage": "/images/projects/default-bg.jpg",
+      "sliderOrder": 3,
+      "backgroundImage": "/images/projects/default-bg.jpg",
+      "images": ["/images/projects/default-bg.jpg"],
+      "link": "https://www.linkedin.com/in/robertlech",
+      "links": [{ "label": "LinkedIn Profile", "url": "https://www.linkedin.com/in/robertlech" }],
+      "colorIcon": "simple-icons:kubernetes",
+      "githubRepo": ""
+    }
+  ]
+}
