@@ -912,13 +912,6 @@ const heroParts = personalData.heroRole.split(' & ');
     color: #2563eb !important;
   }
 
-  @media (max-width: 1023px) {
-    .order-1 {
-      margin-top: -200px;
-      margin-bottom: -200px;
-    }
-  }
-
   @media (max-width: 639px) {
     .project-frame-sizer {
       width: min(90vw, 380px) !important;
@@ -976,6 +969,23 @@ const heroParts = personalData.heroRole.split(' & ');
 
     #home {
       padding-top: 3rem;
+    }
+
+    #home .grid {
+      align-content: start;
+      gap: 2.5rem;
+      min-height: auto;
+      padding-top: 1rem;
+      padding-bottom: 4rem;
+    }
+
+    #home .order-1 {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    #home .order-2 {
+      margin-top: 0;
     }
   }
 
