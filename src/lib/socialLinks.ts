@@ -6,15 +6,22 @@ interface SocialConfig {
   label: string;
   urlTemplate: string;
   icon: string;
+  color?: string;
 }
 
 // {v} in urlTemplate is replaced with the raw handle value from personal.json at call time.
 const SOCIAL_CONFIG: Record<string, SocialConfig> = {
-  github: { label: 'GitHub', urlTemplate: 'https://github.com/{v}', icon: 'simple-icons:github' },
+  github: {
+    label: 'GitHub',
+    urlTemplate: 'https://github.com/{v}',
+    icon: 'simple-icons:github',
+    color: '#181717',
+  },
   linkedin: {
     label: 'LinkedIn',
     urlTemplate: 'https://linkedin.com/in/{v}',
     icon: 'simple-icons:linkedin',
+    color: '#0A66C2',
   },
   gitlab: { label: 'GitLab', urlTemplate: 'https://gitlab.com/{v}', icon: 'simple-icons:gitlab' },
   twitter: { label: 'X (Twitter)', urlTemplate: 'https://x.com/{v}', icon: 'simple-icons:x' },
@@ -92,6 +99,7 @@ export interface SocialLink {
   label: string;
   url: string;
   icon: string;
+  color?: string;
 }
 
 // filterKeys lets callers request a subset in a specific order (e.g. heroSocialLinks in personal.json).
@@ -111,6 +119,7 @@ export function getSocialLinks(personal: PersonalData, filterKeys?: string[]): S
         label: config.label,
         url: config.urlTemplate.replace('{v}', handle),
         icon: config.icon,
+        color: config.color,
       };
     });
 }

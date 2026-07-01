@@ -90,7 +90,13 @@ const heroParts = personalData.heroRole.split(' & ');
                 class="hero-social-link"
                 aria-label={link.label}
               >
-                <iconify-icon icon={link.icon} width="24" height="24" aria-hidden="true" />
+                <iconify-icon
+                  icon={link.icon}
+                  width="24"
+                  height="24"
+                  aria-hidden="true"
+                  style={link.color ? `color: ${link.color};` : undefined}
+                />
               </a>
             ))
           }
