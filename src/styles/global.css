@@ -459,14 +459,6 @@ body.page-hidden * {
   box-shadow: 0 8px 32px #00000040;
 }
 
-[data-theme="light"] .text-backdrop h1 {
-  color: var(--bg-input);
-}
-
-[data-theme="light"] p.text-base.text-slate-400.text-backdrop {
-  color: var(--bg-nav);
-}
-
 /* ===== PRINT / RESUME ===== */
 
 .print-only {

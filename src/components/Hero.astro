@@ -48,7 +48,7 @@ const heroParts = personalData.heroRole.split(' & ');
           Backend systems · Platform reliability
         </p>
 
-        <div class="reveal text-backdrop" style="transition-delay: 0.1s;">
+        <div class="reveal text-backdrop hero-headline-panel" style="transition-delay: 0.1s;">
           <h1 class="font-bold leading-tight" style="font-size: clamp(2.5rem, 5vw, 4.5rem);">
             Hi, I'm<br />
             <span class="gradient-text">{personalData.name}</span>
@@ -69,7 +69,7 @@ const heroParts = personalData.heroRole.split(' & ');
         </div>
 
         <p
-          class="text-base text-slate-400 max-w-lg leading-relaxed reveal text-backdrop"
+          class="text-base text-slate-400 max-w-lg leading-relaxed reveal text-backdrop hero-copy-panel"
           style="transition-delay: 0.2s;"
         >
           {personalData.bio}
@@ -165,12 +165,12 @@ const heroParts = personalData.heroRole.split(' & ');
                         width="450"
                         height="450"
                       />
-                      <div class="absolute bottom-3 left-3 right-3 overflow-hidden">
-                        <div class="bg-slate-950/85 backdrop-blur-md px-3 py-2 border border-white/5">
-                          <p class="text-white font-bold text-sm truncate font-mono">
+                      <div class="hero-slide-caption-wrap absolute bottom-3 left-3 right-3 overflow-hidden">
+                        <div class="hero-slide-caption backdrop-blur-md px-3 py-2 border">
+                          <p class="hero-slide-title font-bold text-sm truncate font-mono">
                             {project.title}
                           </p>
-                          <p style="color: var(--accent);" class="text-xs font-medium truncate">
+                          <p class="hero-slide-company text-xs font-medium truncate">
                             {project.company}
                           </p>
                         </div>
@@ -186,10 +186,11 @@ const heroParts = personalData.heroRole.split(' & ');
                     <button
                       class="slider-dot w-1.5 h-1.5 transition-[background-color,width] duration-300"
                       data-dot={i}
+                      aria-current={i === 0 ? 'true' : 'false'}
                       style={
                         i === 0
-                          ? 'background:#6366f1;width:1.25rem;'
-                          : 'background:rgba(255,255,255,0.25);'
+                          ? 'width:1.25rem;'
+                          : 'width:0.375rem;'
                       }
                       aria-label={`Go to slide ${i + 1}`}
                     />
@@ -281,10 +282,10 @@ const heroParts = personalData.heroRole.split(' & ');
     outline: 2px solid var(--accent);
     outline-offset: 2px;
   }
-  [data-theme='light'] .hero-social-link {
+  :global([data-theme='light']) .hero-social-link {
     color: #475569;
   }
-  [data-theme='light'] .hero-social-link:hover {
+  :global([data-theme='light']) .hero-social-link:hover {
     color: #1e293b;
   }
 
@@ -397,6 +398,27 @@ const heroParts = personalData.heroRole.split(' & ');
     cursor: pointer;
   }
 
+  .hero-slide-caption {
+    background: rgba(2, 6, 23, 0.85);
+    border-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .hero-slide-title {
+    color: #ffffff;
+  }
+
+  .hero-slide-company {
+    color: var(--accent);
+  }
+
+  .slider-dot {
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  .slider-dot[aria-current='true'] {
+    background: #6366f1;
+  }
+
   .slider-nav-btn {
     position: absolute;
     top: 50%;
@@ -502,6 +524,25 @@ const heroParts = personalData.heroRole.split(' & ');
     transform: translateX(2px);
   }
 
+  :global([data-theme='light']) .slider-nav-btn {
+    background: rgba(255, 255, 255, 0.78);
+    border-color: rgba(37, 99, 235, 0.16);
+    box-shadow:
+      0 10px 28px rgba(37, 99, 235, 0.16),
+      0 1px 0 rgba(255, 255, 255, 0.9) inset;
+    color: #2563eb;
+  }
+
+  :global([data-theme='light']) .slider-nav-btn:hover {
+    background: rgba(239, 246, 255, 0.94);
+    border-color: rgba(14, 165, 233, 0.48);
+    color: #0f172a;
+    box-shadow:
+      0 12px 32px rgba(37, 99, 235, 0.2),
+      0 0 0 1px rgba(14, 165, 233, 0.18),
+      0 1px 0 rgba(255, 255, 255, 0.95) inset;
+  }
+
   .text-backdrop {
     position: relative;
     z-index: 2;
@@ -511,6 +552,64 @@ const heroParts = personalData.heroRole.split(' & ');
     border-radius: 0.6rem;
     padding: 0.75rem 1rem;
     border-left: 2px solid rgba(96, 165, 250, 0.1);
+  }
+
+  :global([data-theme='light']) .text-backdrop {
+    color: #1e293b;
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(239, 246, 255, 0.82)),
+      repeating-linear-gradient(
+        0deg,
+        rgba(37, 99, 235, 0.035) 0,
+        rgba(37, 99, 235, 0.035) 1px,
+        transparent 1px,
+        transparent 12px
+      );
+    border: 1px solid rgba(37, 99, 235, 0.16);
+    border-left: 4px solid rgba(14, 165, 233, 0.64);
+    box-shadow:
+      0 20px 50px rgba(37, 99, 235, 0.09),
+      inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  }
+
+  :global([data-theme='light']) .hero-headline-panel {
+    border-radius: 0.85rem;
+  }
+
+  :global([data-theme='light']) .hero-headline-panel::after {
+    content: '';
+    position: absolute;
+    right: 1rem;
+    bottom: 0.85rem;
+    width: 5.25rem;
+    height: 0.45rem;
+    background: linear-gradient(90deg, rgba(14, 165, 233, 0.45), rgba(79, 70, 229, 0.65));
+    border-radius: 999px;
+    opacity: 0.75;
+    pointer-events: none;
+  }
+
+  :global([data-theme='light']) .hero-copy-panel {
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(248, 250, 252, 0.76)),
+      repeating-linear-gradient(
+        90deg,
+        rgba(14, 165, 233, 0.035) 0,
+        rgba(14, 165, 233, 0.035) 1px,
+        transparent 1px,
+        transparent 14px
+      );
+    border-left-color: rgba(79, 70, 229, 0.46);
+    color: #334155;
+    box-shadow: 0 16px 38px rgba(15, 23, 42, 0.08);
+  }
+
+  :global([data-theme='light']) .hero-headline-panel h1 {
+    color: #172033;
+  }
+
+  :global([data-theme='light']) .hero-headline-panel h2 {
+    color: #475569;
   }
 
   .project-frame-outer {
@@ -677,6 +776,142 @@ const heroParts = personalData.heroRole.split(' & ');
       inset 1px 1px 0 rgba(99, 153, 255, 0.06);
   }
 
+  :global([data-theme='light']) .project-frame {
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(226, 232, 240, 0.78)),
+      repeating-linear-gradient(
+        0deg,
+        rgba(37, 99, 235, 0.045) 0,
+        rgba(37, 99, 235, 0.045) 1px,
+        transparent 1px,
+        transparent 12px
+      );
+    outline: 1px solid rgba(30, 64, 175, 0.28);
+    box-shadow:
+      0 24px 55px rgba(15, 23, 42, 0.18),
+      0 0 0 1px rgba(255, 255, 255, 0.74) inset,
+      inset 1px 1px 0 rgba(255, 255, 255, 0.88),
+      inset -1px -1px 0 rgba(37, 99, 235, 0.08);
+  }
+
+  :global([data-theme='light']) .pf-header {
+    background:
+      linear-gradient(180deg, rgba(248, 250, 252, 0.96), rgba(219, 234, 254, 0.9)),
+      linear-gradient(90deg, rgba(14, 165, 233, 0.18), transparent 58%);
+    border-color:
+      rgba(255, 255, 255, 0.92)
+      rgba(37, 99, 235, 0.28)
+      rgba(37, 99, 235, 0.32)
+      rgba(255, 255, 255, 0.92);
+  }
+
+  :global([data-theme='light']) .pf-title {
+    color: #334155;
+    text-shadow: none;
+  }
+
+  :global([data-theme='light']) .pf-btn {
+    background-color: rgba(255, 255, 255, 0.74);
+    border-color:
+      rgba(255, 255, 255, 0.94)
+      rgba(37, 99, 235, 0.3)
+      rgba(37, 99, 235, 0.34)
+      rgba(255, 255, 255, 0.94);
+  }
+
+  :global([data-theme='light']) .pf-btn:active {
+    border-color:
+      rgba(37, 99, 235, 0.34)
+      rgba(255, 255, 255, 0.94)
+      rgba(255, 255, 255, 0.94)
+      rgba(37, 99, 235, 0.3);
+  }
+
+  :global([data-theme='light']) .pf-btn:hover {
+    background-color: rgba(239, 246, 255, 0.94);
+  }
+
+  :global([data-theme='light']) .pf-btn-icon {
+    color: #2563eb;
+  }
+
+  :global([data-theme='light']) .pf-btn:hover .pf-btn-icon {
+    color: #0f172a;
+  }
+
+  :global([data-theme='light']) .pf-body {
+    background:
+      linear-gradient(135deg, rgba(248, 250, 252, 0.96), rgba(219, 234, 254, 0.72)),
+      repeating-linear-gradient(
+        90deg,
+        rgba(37, 99, 235, 0.04) 0,
+        rgba(37, 99, 235, 0.04) 1px,
+        transparent 1px,
+        transparent 14px
+      );
+    border-color:
+      rgba(37, 99, 235, 0.34)
+      rgba(255, 255, 255, 0.72)
+      rgba(255, 255, 255, 0.72)
+      rgba(37, 99, 235, 0.34);
+  }
+
+  :global([data-theme='light']) .hero-slide {
+    padding: 0.45rem;
+  }
+
+  :global([data-theme='light']) .hero-slide img {
+    border: 1px solid rgba(37, 99, 235, 0.14);
+    background: #ffffff;
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.12);
+  }
+
+  :global([data-theme='light']) .hero-slide-caption-wrap {
+    bottom: 0.85rem;
+    left: 0.85rem;
+    right: 0.85rem;
+  }
+
+  :global([data-theme='light']) .hero-slide-caption {
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(239, 246, 255, 0.78));
+    border-color: rgba(37, 99, 235, 0.16);
+    box-shadow:
+      0 12px 28px rgba(15, 23, 42, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  }
+
+  :global([data-theme='light']) .hero-slide-title {
+    color: #1e293b;
+  }
+
+  :global([data-theme='light']) .hero-slide-company {
+    color: #2563eb;
+  }
+
+  :global([data-theme='light']) .slider-dot {
+    background: rgba(37, 99, 235, 0.22);
+  }
+
+  :global([data-theme='light']) .slider-dot[aria-current='true'] {
+    background: #2563eb;
+  }
+
+  :global([data-theme='light']) .pf-badge,
+  :global([data-theme='light']) .pf-counter {
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(219, 234, 254, 0.82));
+    outline: 1px solid rgba(30, 64, 175, 0.24);
+    box-shadow:
+      0 14px 28px rgba(15, 23, 42, 0.18),
+      inset 1px 1px 0 rgba(255, 255, 255, 0.88);
+  }
+
+  :global([data-theme='light']) .pf-badge,
+  :global([data-theme='light']) .slider-counter {
+    color: #2563eb !important;
+  }
+
   @media (max-width: 1023px) {
     .order-1 {
       margin-top: -200px;
@@ -744,7 +979,7 @@ const heroParts = personalData.heroRole.split(' & ');
     }
   }
 
-  [data-theme='light'] .gradient-text {
+  :global([data-theme='light']) .gradient-text {
     background: linear-gradient(90deg, #716ae3, #4984a2, #716ae3);
     background-size: 200% auto;
     -webkit-background-clip: text;
@@ -798,11 +1033,10 @@ const heroParts = personalData.heroRole.split(' & ');
     badges[current].style.transform = 'scale(1)';
 
     dots.forEach((d, i) => {
+      d.setAttribute('aria-current', i === current ? 'true' : 'false');
       if (i === current) {
-        d.style.background = '#6366f1';
         d.style.width = '1.25rem';
       } else {
-        d.style.background = 'rgba(255,255,255,0.25)';
         d.style.width = '0.375rem';
       }
     });
