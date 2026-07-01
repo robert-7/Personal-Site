@@ -18,15 +18,20 @@ const socialLinks = getSocialLinks(personalData as unknown as Record<string, str
         </p>
         <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold section-title">Get in touch.</h2>
         <p class="mt-4 text-base max-w-2xl mx-auto" style="color: var(--text-muted);">
-          The best places to find me are LinkedIn and GitHub. Email is currently a placeholder
-          until I replace it with my preferred public address.
+          The best places to find me are LinkedIn and GitHub.
         </p>
       </div>
 
       <div class="contact-grid reveal" style="transition-delay: 0.1s;">
         <a class="contact-card" href="https://www.linkedin.com/in/robertlech" target="_blank" rel="noopener">
           <span class="contact-icon">
-            <iconify-icon icon="simple-icons:linkedin" width="24" height="24" aria-hidden="true" />
+            <iconify-icon
+              icon="simple-icons:linkedin"
+              width="24"
+              height="24"
+              aria-hidden="true"
+              style="color: #0a66c2;"
+            />
           </span>
           <span>
             <strong>LinkedIn</strong>
@@ -36,7 +41,13 @@ const socialLinks = getSocialLinks(personalData as unknown as Record<string, str
 
         <a class="contact-card" href="https://github.com/robert-7" target="_blank" rel="noopener">
           <span class="contact-icon">
-            <iconify-icon icon="simple-icons:github" width="24" height="24" aria-hidden="true" />
+            <iconify-icon
+              icon="simple-icons:github"
+              width="24"
+              height="24"
+              aria-hidden="true"
+              style="color: #181717;"
+            />
           </span>
           <span>
             <strong>GitHub</strong>
@@ -44,36 +55,27 @@ const socialLinks = getSocialLinks(personalData as unknown as Record<string, str
           </span>
         </a>
 
-        <a class="contact-card" href={`mailto:${personalData.email}`}>
-          <span class="contact-icon">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-              />
-            </svg>
-          </span>
-          <span>
-            <strong>Email</strong>
-            <small>{personalData.email}</small>
-          </span>
-        </a>
-
         <div class="contact-card" aria-label={personalData.location}>
           <span class="contact-icon">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <svg fill="none" viewBox="0 0 24 24" aria-hidden="true">
+              <defs>
+                <linearGradient id="location-pin-gradient" x1="4" y1="3" x2="20" y2="21">
+                  <stop offset="0%" stop-color="#0ea5e9" />
+                  <stop offset="100%" stop-color="#6366f1" />
+                </linearGradient>
+              </defs>
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
+                stroke="url(#location-pin-gradient)"
                 d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
               />
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
+                stroke="url(#location-pin-gradient)"
                 d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
               />
             </svg>
@@ -96,7 +98,13 @@ const socialLinks = getSocialLinks(personalData as unknown as Record<string, str
                 class="contact-social-link"
                 aria-label={link.label}
               >
-                <iconify-icon icon={link.icon} width="22" height="22" aria-hidden="true" />
+                <iconify-icon
+                  icon={link.icon}
+                  width="22"
+                  height="22"
+                  aria-hidden="true"
+                  style={link.color ? `color: ${link.color};` : undefined}
+                />
               </a>
             ))}
           </div>

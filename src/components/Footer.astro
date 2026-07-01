@@ -58,7 +58,13 @@ const { footerAttribution } = siteData;
               rel="noopener noreferrer"
               aria-label={link.label}
             >
-              <iconify-icon icon={link.icon} width="20" height="20" aria-hidden="true" />
+              <iconify-icon
+                icon={link.icon}
+                width="20"
+                height="20"
+                aria-hidden="true"
+                style={link.color ? `color: ${link.color};` : undefined}
+              />
             </a>
           ))
         }
