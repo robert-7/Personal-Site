@@ -3,6 +3,8 @@ import certificationsData from '../data/certifications.json';
 
 type CertType = 'certification' | 'professional-development' | 'in-progress';
 
+const certTypes = new Set(certificationsData.map((cert) => cert.type ?? 'certification'));
+
 // Returns the CSS class for the status badge chip (green / amber / blue).
 function badgeClass(type: CertType) {
   if (type === 'professional-development') return 'badge-pro-dev';
@@ -31,15 +33,30 @@ function cardModClass(type: CertType) {
       <p class="text-sm font-semibold tracking-widest text-highlight uppercase mb-3">Training</p>
       <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold section-title">Courses & Development</h2>
       <div class="flex flex-wrap items-center justify-center gap-4 mt-5">
-        <span class="legend-item">
-          <span class="legend-dot dot-earned"></span>Certification
-        </span>
-        <span class="legend-item">
-          <span class="legend-dot dot-pro-dev"></span>Professional Development
-        </span>
-        <span class="legend-item">
-          <span class="legend-dot dot-in-progress"></span>In Progress
-        </span>
+        {
+          certTypes.has('certification') && (
+            <span class="legend-item">
+              <span class="legend-dot dot-earned" />
+              Certification
+            </span>
+          )
+        }
+        {
+          certTypes.has('professional-development') && (
+            <span class="legend-item">
+              <span class="legend-dot dot-pro-dev" />
+              Professional Development
+            </span>
+          )
+        }
+        {
+          certTypes.has('in-progress') && (
+            <span class="legend-item">
+              <span class="legend-dot dot-in-progress" />
+              In Progress
+            </span>
+          )
+        }
       </div>
     </div>
 
@@ -74,7 +91,7 @@ function cardModClass(type: CertType) {
 
                 <p class="text-slate-400 text-sm leading-relaxed">{cert.description}</p>
 
-                <div class="flex items-center justify-between pt-2 border-t border-white/5">
+                <div class="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-white/5">
                   <span class="text-xs text-slate-600 font-mono">{cert.date}</span>
 
                   {type === 'in-progress' ? (
@@ -82,32 +99,59 @@ function cardModClass(type: CertType) {
                       <span class="ip-pulse" />
                       Actively Studying
                     </span>
-                  ) : cert.credentialUrl ? (
-                    <a
-                      href={cert.credentialUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class={`inline-flex items-center gap-1.5 transition-colors text-xs font-medium ${type === 'professional-development' ? 'text-amber-500/70 hover:text-amber-400' : 'text-accent hover:text-highlight'}`}
-                    >
-                      <span>
-                        {type === 'professional-development'
-                          ? 'View Certificate'
-                          : 'View Credential'}
-                      </span>
-                      <svg
-                        class="w-3.5 h-3.5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                        />
-                      </svg>
-                    </a>
+                  ) : cert.credentialUrl || cert.courseUrl ? (
+                    <span class="inline-flex flex-wrap items-center justify-end gap-3">
+                      {cert.credentialUrl && (
+                        <a
+                          href={cert.credentialUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class={`inline-flex items-center gap-1.5 transition-colors text-xs font-medium ${type === 'professional-development' ? 'text-amber-500/70 hover:text-amber-400' : 'text-accent hover:text-highlight'}`}
+                        >
+                          <span>
+                            {type === 'professional-development'
+                              ? 'View Certificate'
+                              : 'View Credential'}
+                          </span>
+                          <svg
+                            class="w-3.5 h-3.5"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                            />
+                          </svg>
+                        </a>
+                      )}
+                      {cert.courseUrl && (
+                        <a
+                          href={cert.courseUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500 transition-colors hover:text-slate-300"
+                        >
+                          <span>Course</span>
+                          <svg
+                            class="w-3.5 h-3.5"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                            />
+                          </svg>
+                        </a>
+                      )}
+                    </span>
                   ) : (
                     <span class="text-slate-700 text-xs italic">No link available</span>
                   )}

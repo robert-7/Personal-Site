@@ -52,6 +52,12 @@ const { title, description, eyebrow, date, readTime, image, imageAlt } = Astro.p
       var(--bg);
   }
 
+  :global([data-theme='light']) .blog-shell {
+    background:
+      linear-gradient(180deg, rgba(248, 250, 252, 0.92), rgba(241, 245, 249, 0.96)),
+      var(--bg);
+  }
+
   .blog-article {
     width: min(100%, 880px);
     margin: 0 auto;
@@ -103,6 +109,10 @@ const { title, description, eyebrow, date, readTime, image, imageAlt } = Astro.p
     margin-top: 1rem;
     color: #94a3b8;
     font-size: 0.92rem;
+  }
+
+  :global([data-theme='light']) .blog-meta {
+    color: var(--text-dim);
   }
 
   .blog-banner {
@@ -168,6 +178,11 @@ const { title, description, eyebrow, date, readTime, image, imageAlt } = Astro.p
     background: rgba(15, 23, 42, 0.75);
     color: #dbeafe;
     font-size: 0.92em;
+  }
+
+  :global([data-theme='light']) .blog-content :global(code) {
+    background: rgba(226, 232, 240, 0.92);
+    color: #1e293b;
   }
 
   .blog-content :global(pre) {

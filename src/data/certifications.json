@@ -6,7 +6,28 @@
     "status": "Completed",
     "type": "professional-development",
     "description": "Cloud computing foundations, AWS services, security, networking, and deployment patterns used as the basis for the Flask-to-AWS migration project.",
-    "credentialUrl": "https://www.coursera.org/learn/aws-cloud-technical-essentials"
+    "credentialUrl": "https://www.coursera.org/account/accomplishments/verify/FT238LZEQ5VK",
+    "courseUrl": "https://www.coursera.org/learn/aws-cloud-technical-essentials"
+  },
+  {
+    "name": "Programming with Golang",
+    "issuer": "Coursera",
+    "date": "2026",
+    "status": "Completed",
+    "type": "professional-development",
+    "description": "Go programming foundations, control flow, functions, data structures, and practical language patterns for building reliable backend services.",
+    "credentialUrl": "https://www.coursera.org/account/accomplishments/verify/3LYI1HKF6C5Y",
+    "courseUrl": "https://www.coursera.org/learn/programming-with-golang"
+  },
+  {
+    "name": "Full Stack Web Development with Flask",
+    "issuer": "LinkedIn Learning",
+    "date": "2026",
+    "status": "Completed",
+    "type": "professional-development",
+    "description": "Full-stack Flask application development, virtual environment setup, routing, templates, database integration, and practical Python web workflows.",
+    "credentialUrl": "https://www.linkedin.com/learning/certificates/bbf2df12138c3a8a605658d6e363e7ef1dbbdcfa5f37b0405573b819889229e7/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BT0dUv172TGegOPG8aNW2Fw%3D%3D",
+    "courseUrl": "https://www.linkedin.com/learning/full-stack-web-development-with-flask/setting-up-the-virtual-environment-and-framework?u=114556090"
   },
   {
     "name": "AI Agents and Agentic AI Architecture in Python",
@@ -15,6 +36,7 @@
     "status": "Completed",
     "type": "professional-development",
     "description": "Applied AI course work that informed the Piano Sheet Music Simplifier pipeline and its structured planning, validation, and deterministic rewrite flow.",
-    "credentialUrl": "https://www.coursera.org/learn/ai-agents-architecture-python"
+    "credentialUrl": "https://www.coursera.org/account/accomplishments/verify/RG1YB6B54SAE",
+    "courseUrl": "https://www.coursera.org/learn/ai-agents-architecture-python"
   }
 ]
