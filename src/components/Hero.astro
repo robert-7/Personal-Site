@@ -87,7 +87,7 @@ const heroParts = personalData.heroRole.split(' & ');
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="hero-social-link"
+                class={`hero-social-link hero-social-link--${link.key}`}
                 aria-label={link.label}
               >
                 <iconify-icon
@@ -95,7 +95,7 @@ const heroParts = personalData.heroRole.split(' & ');
                   width="24"
                   height="24"
                   aria-hidden="true"
-                  style={link.color ? `color: ${link.color};` : undefined}
+                  style={link.key !== 'github' && link.color ? `color: ${link.color};` : undefined}
                 />
               </a>
             ))
@@ -278,6 +278,12 @@ const heroParts = personalData.heroRole.split(' & ');
     color: white;
     transform: translateY(-4px);
   }
+  .hero-social-link--github {
+    color: #a78bfa;
+  }
+  .hero-social-link--github:hover {
+    color: #c4b5fd;
+  }
   .hero-social-link:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
@@ -287,6 +293,10 @@ const heroParts = personalData.heroRole.split(' & ');
   }
   :global([data-theme='light']) .hero-social-link:hover {
     color: #1e293b;
+  }
+  :global([data-theme='light']) .hero-social-link--github,
+  :global([data-theme='light']) .hero-social-link--github:hover {
+    color: #181717;
   }
 
   .spotlight-bg {

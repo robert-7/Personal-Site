@@ -56,6 +56,7 @@ const { footerAttribution } = siteData;
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
+              class={`footer-social-link footer-social-link--${link.key}`}
               aria-label={link.label}
             >
               <iconify-icon
@@ -63,7 +64,7 @@ const { footerAttribution } = siteData;
                 width="20"
                 height="20"
                 aria-hidden="true"
-                style={link.color ? `color: ${link.color};` : undefined}
+                style={link.key !== 'github' && link.color ? `color: ${link.color};` : undefined}
               />
             </a>
           ))
@@ -148,6 +149,16 @@ const { footerAttribution } = siteData;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .footer-social-link--github,
+  .footer-social-link--github:hover {
+    color: #a78bfa;
+  }
+
+  :global([data-theme='light']) .footer-social-link--github,
+  :global([data-theme='light']) .footer-social-link--github:hover {
+    color: #181717;
   }
 
   @media (max-width: 760px) {

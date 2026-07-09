@@ -40,13 +40,12 @@ const socialLinks = getSocialLinks(personalData as unknown as Record<string, str
         </a>
 
         <a class="contact-card" href="https://github.com/robert-7" target="_blank" rel="noopener">
-          <span class="contact-icon">
+          <span class="contact-icon contact-icon--github">
             <iconify-icon
               icon="simple-icons:github"
               width="24"
               height="24"
               aria-hidden="true"
-              style="color: #181717;"
             />
           </span>
           <span>
@@ -95,7 +94,7 @@ const socialLinks = getSocialLinks(personalData as unknown as Record<string, str
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="contact-social-link"
+                class={`contact-social-link contact-social-link--${link.key}`}
                 aria-label={link.label}
               >
                 <iconify-icon
@@ -103,7 +102,7 @@ const socialLinks = getSocialLinks(personalData as unknown as Record<string, str
                   width="22"
                   height="22"
                   aria-hidden="true"
-                  style={link.color ? `color: ${link.color};` : undefined}
+                  style={link.key !== 'github' && link.color ? `color: ${link.color};` : undefined}
                 />
               </a>
             ))}
@@ -168,6 +167,10 @@ const socialLinks = getSocialLinks(personalData as unknown as Record<string, str
     height: 1.4rem;
   }
 
+  .contact-icon--github {
+    color: #a78bfa;
+  }
+
   .contact-card strong,
   .contact-card small {
     display: block;
@@ -209,10 +212,24 @@ const socialLinks = getSocialLinks(personalData as unknown as Record<string, str
       transform 0.2s ease;
   }
 
+  .contact-social-link--github {
+    color: #a78bfa;
+  }
+
   .contact-social-link:hover {
     color: var(--accent);
     border-color: var(--border-hover);
     transform: translateY(-2px);
+  }
+
+  .contact-social-link--github:hover {
+    color: #c4b5fd;
+  }
+
+  :global([data-theme='light']) .contact-icon--github,
+  :global([data-theme='light']) .contact-social-link--github,
+  :global([data-theme='light']) .contact-social-link--github:hover {
+    color: #181717;
   }
 </style>
 
