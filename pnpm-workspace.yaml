@@ -7,6 +7,9 @@ overrides:
   # devalue >=5.6.3 <=5.8.0 has GHSA-77vg-94rm-hx3p (DoS via sparse array deserialization).
   # Astro pulls it in as a transitive dep. Force the patched version.
   devalue: ">=5.8.1"
+  # yaml <2.8.3 has GHSA-48c2-rrv3-qjmp (stack overflow via deeply nested collections).
+  # Pulled in transitively via @astrojs/check > ... > yaml-language-server. Force the patch.
+  yaml: ">=2.8.3"
 
 # ── Supply chain security ─────────────────────────────────────────────────────
 
