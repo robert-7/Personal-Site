@@ -15,6 +15,15 @@ overrides:
   # svgo <4.0.2 has GHSA-2p49-hgcm-8545 (removeScripts plugin leaves some executable
   # scripts intact). Pulled in transitively via astro > svgo. Force the patched version.
   svgo: ">=4.0.2"
+  # js-yaml <4.3.0 has a quadratic-CPU DoS via merge-key chains. Pulled in transitively
+  # via astro. Force the patch; capped <5 to respect astro's declared ^4 range.
+  js-yaml: ">=4.3.0 <5"
+  # fast-uri <3.1.4 has two host-confusion advisories (backslash authority + failed IDN;
+  # 3.1.3 fixes only IDN). Transitive via @astrojs/check. Force the patch; capped <4.
+  fast-uri: ">=3.1.4 <4"
+  # sharp <0.35.0 inherits libvips CVE-2026-33327/33328/35590/35591. Pulled in transitively
+  # via astro. Force 0.35.x (libvips 8.18.3); capped <0.36 to match astro's declared range.
+  sharp: ">=0.35.0 <0.36"
 
 # ── Supply chain security ─────────────────────────────────────────────────────
 
@@ -28,6 +37,9 @@ minimumReleaseAge: 10080
 # security patches where waiting 1 week is unacceptable (e.g. a hot CVE fix).
 # Format: - "package@version"  OR  - "@scope/package@version"
 minimumReleaseAgeExclude:
+  # fast-uri@3.1.4 (published 2026-07-19) is inside the 7-day window; exempt this hot
+  # security fix so it lands now. Safe to remove after 2026-07-26.
+  - "fast-uri@3.1.4"
 
 # Block transitive deps from using git://, tarball, or GitHub shorthand URLs.
 # This is the direct mitigation for the Mini Shai-Hulud attack vector, where a
