@@ -12,6 +12,9 @@ overrides:
   # yaml <2.8.3 has GHSA-48c2-rrv3-qjmp (stack overflow via deeply nested collections).
   # Pulled in transitively via @astrojs/check > ... > yaml-language-server. Force the patch.
   yaml: ">=2.8.3"
+  # svgo <4.0.2 has GHSA-2p49-hgcm-8545 (removeScripts plugin leaves some executable
+  # scripts intact). Pulled in transitively via astro > svgo. Force the patched version.
+  svgo: ">=4.0.2"
 
 # ── Supply chain security ─────────────────────────────────────────────────────
 
