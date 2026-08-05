@@ -26,6 +26,11 @@ overrides:
   # (sourceMappingURL) leading to arbitrary .map file disclosure; fixed in 8.5.18.
   # Pulled in transitively via @tailwindcss/vite, astro, and eslint-plugin-astro.
   postcss: ">=8.5.18"
+  # brace-expansion 4.x/5.x <5.0.9 has two DoS advisories: GHSA-mh99-v99m-4gvg
+  # (unbounded expansion length OOM, fixed 5.0.8) and GHSA-rgw5-rvv9-x895 (unbounded
+  # intermediate arrays bypassing the first mitigation, fixed 5.0.9). Pulled in
+  # transitively via eslint/@typescript-eslint > minimatch. Force >=5.0.9; capped <6.
+  brace-expansion: ">=5.0.9 <6"
   # sharp <0.35.0 inherits libvips CVE-2026-33327/33328/35590/35591. Pulled in transitively
   # via astro. Force 0.35.x (libvips 8.18.3); capped <0.36 to match astro's declared range.
   sharp: ">=0.35.0 <0.36"
@@ -45,6 +50,9 @@ minimumReleaseAgeExclude:
   # fast-uri@3.1.5 (published 2026-07-31) is inside the 7-day window; exempt this hot
   # security fix so it lands now. Safe to remove after 2026-08-07.
   - "fast-uri@3.1.5"
+  # brace-expansion@5.0.9 (published 2026-07-30) is inside the 7-day window; exempt this
+  # hot security fix so it lands now. Safe to remove after 2026-08-06.
+  - "brace-expansion@5.0.9"
 
 # Block transitive deps from using git://, tarball, or GitHub shorthand URLs.
 # This is the direct mitigation for the Mini Shai-Hulud attack vector, where a
