@@ -15,9 +15,15 @@ overrides:
   # svgo <4.0.2 has GHSA-2p49-hgcm-8545 (removeScripts plugin leaves some executable
   # scripts intact). Pulled in transitively via astro > svgo. Force the patched version.
   svgo: ">=4.0.2"
-  # js-yaml <4.3.0 has a quadratic-CPU DoS via merge-key chains. Pulled in transitively
-  # via astro. Force the patch; capped <5 to respect astro's declared ^4 range.
-  js-yaml: ">=4.3.0 <5"
+  # js-yaml <4.3.1 (4.x) / <3.15.1 (3.x) has GHSA-5p4m-2wfm-xmqj: quadratic-CPU DoS via
+  # !!omap resolution (same weakness as CVE-2026-59870, never backported off 5.x). Pulled
+  # in transitively via astro. Force the patch; capped <5 to respect astro's declared ^4 range.
+  js-yaml: ">=4.3.1 <5"
+  # nanoid <5.1.6 (5.x) / <3.3.18 (3.x) has GHSA-2v37-7h3g-55p8 / CVE-2026-67213: an
+  # attacker-controlled size of 0 passed to customAlphabet/customRandom spins forever
+  # (DoS). Pulled in transitively via postcss. Force the patch; capped <4 to respect
+  # postcss's declared ^3.3.x range.
+  nanoid: ">=3.3.18 <4"
   # fast-uri <3.1.5 has host-confusion advisories, incl. GHSA host confusion via backslash
   # authority introducer (affects >=3.0.0 <3.1.5, fixed in 3.1.5). Transitive via
   # @astrojs/check. Force the patch; capped <4.
