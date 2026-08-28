@@ -1,5 +1,7 @@
 ---
 import personalData from '../data/personal.json';
+
+const aboutParagraphs = personalData.aboutLong.split('\n\n');
 ---
 
 <section id="about" class="py-24 bg-slate-900/30" style="scroll-margin-top: 80px;">
@@ -13,9 +15,11 @@ import personalData from '../data/personal.json';
       </div>
 
       <div class="card reveal" style="transition-delay: 0.15s;">
-        <p class="text-lg text-slate-300 leading-relaxed">
-          {personalData.aboutLong}
-        </p>
+        {aboutParagraphs.map((paragraph, index) => (
+          <p class:list={['text-lg text-slate-300 leading-relaxed', { 'mt-4': index > 0 }]}>
+            {paragraph}
+          </p>
+        ))}
 
         <hr class="gradient-divider my-8" />
 
